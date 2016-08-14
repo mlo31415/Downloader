@@ -2,17 +2,19 @@ import urllib.request
 import os
 
 
-webDirectory= "FanewsCard"
-prefix="Fanews"
+webDirectory= "Barsoomian_Times"
+prefix="Barsoomian_Times"
+digitsInIssue=2
+digitsInPage=2
 
 outputDirectory="C:\\Users\\mlo\\temp\\downloads"
 outputDirectory=os.path.join(outputDirectory, webDirectory)
 if not os.path.exists(outputDirectory):
     os.mkdir(outputDirectory)
 
-for issue in range(1, 350):
-    for page in range(0, 1):
-        filename=prefix+str(issue).zfill(3)+'.html'#''-'+str(page).zfill(2)+'.html'
+for issue in range(1, 20):
+    for page in range(0, 19):
+        filename=prefix+str(issue).zfill(digitsInIssue)+'-'+str(page).zfill(digitsInPage)+'.html'
         url = 'http://fanac.org/fanzines/' + webDirectory + '/' + filename
         try:
             response = urllib.request.urlopen(url, data=None)
